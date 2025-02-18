@@ -1,0 +1,21 @@
+name: Deploy to Angular to Server
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout del codigo 
+            uses: actions/checkout@v2
+
+          - name: Construir la aplicación
+            run: echo "Construyendo la aplicación"
+
+          - name: Run tests
+            if: success()
+            run: echo "Desplegando la aplicación"
